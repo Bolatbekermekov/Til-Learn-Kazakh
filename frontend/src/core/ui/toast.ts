@@ -1,46 +1,29 @@
 import { t } from 'i18next'
-import { createNotifications } from 'react-native-notificated'
+import Toast from 'react-native-toast-message'
 
-const { useNotifications, NotificationsProvider } = createNotifications()
+type ToastType = 'success' | 'error' | 'info'
 
-// Оборачиваем методы в более удобный интерфейс
+const showToast = (type: ToastType, message: string, title: string) => {
+	Toast.show({
+		type,
+		text1: title,
+		text2: message,
+	})
+}
+
 const toast = {
 	success: (message: string, title = t('SUCCESS.TITLE')) => {
-		const { notify } = useNotifications()
-		notify('success', {
-			params: {
-				description: message,
-				title,
-			},
-		})
+		showToast('success', message, title)
 	},
 	error: (message: string, title = t('ERROR.TITLE')) => {
-		const { notify } = useNotifications()
-		notify('error', {
-			params: {
-				description: message,
-				title,
-			},
-		})
+		showToast('error', message, title)
 	},
 	warning: (message: string, title = t('WARNING')) => {
-		const { notify } = useNotifications()
-		notify('warning', {
-			params: {
-				description: message,
-				title,
-			},
-		})
+		showToast('info', message, title)
 	},
 	info: (message: string, title = t('INFORMATION')) => {
-		const { notify } = useNotifications()
-		notify('info', {
-			params: {
-				description: message,
-				title,
-			},
-		})
+		showToast('info', message, title)
 	},
 }
 
-export { NotificationsProvider, toast }
+export { toast }

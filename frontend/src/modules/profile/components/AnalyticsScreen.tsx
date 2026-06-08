@@ -345,7 +345,7 @@ const AnalyticsScreen: React.FC = () => {
 		} = yearlyData
 
 		let showMonthStats = false
-		let barMonthStatsContent: JSX.Element | null = null
+		let barMonthStatsContent: React.ReactElement | null = null
 
 		if (selectedMonthIndex !== null) {
 			if (isBarMonthLoading) {

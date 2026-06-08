@@ -14,8 +14,7 @@ export const signupFormSchema = z.object({
 		.min(8, { message: t('AUTHORIZATION.SIGNUP.SIGNUP_FORM.PASSWORD_MIN_LENGTH') })
 		.regex(/[A-Z]/, { message: t('AUTHORIZATION.SIGNUP.SIGNUP_FORM.PASSWORD_UPPERCASE') })
 		.regex(/[a-z]/, { message: t('AUTHORIZATION.SIGNUP.SIGNUP_FORM.PASSWORD_LOWERCASE') })
-		.regex(/[0-9]/, { message: t('AUTHORIZATION.SIGNUP.SIGNUP_FORM.PASSWORD_DIGIT') })
-		.regex(/[@$!%*?&]/, { message: t('AUTHORIZATION.SIGNUP.SIGNUP_FORM.PASSWORD_SPECIAL') }),
+		.regex(/[0-9]/, { message: t('AUTHORIZATION.SIGNUP.SIGNUP_FORM.PASSWORD_DIGIT') }),
 })
 
 export type SignupFormData = z.infer<typeof signupFormSchema>

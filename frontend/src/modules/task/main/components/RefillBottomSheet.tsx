@@ -14,7 +14,7 @@ import { homeService } from '../../../home/services/home.service'
 const RefillBottomSheet = ({
 	bottomSheetRef,
 }: {
-	bottomSheetRef: React.RefObject<BottomSheetModal>
+	bottomSheetRef: React.RefObject<BottomSheetModal | null>
 }) => {
 	const navigation = useNavigation<NavigationProp<any>>()
 	const queryClient = useQueryClient()
